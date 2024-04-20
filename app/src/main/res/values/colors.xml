@@ -11,7 +11,7 @@
     <!-- CALC ACTIVITY -->
     <color name="calc_bg">#202020</color>
     <color name="calc_fg">#FEFEFE</color>
-    <color name="calc_func_bg">#323232</color>
+    <color name="calc_func_bg">#6A6666</color>
     <color name="calc_digit_bg">#3B3B3B</color>
     <color name="calc_equal_bg">#4CC1FE</color>
     <color name="calc_history_fg">#9B9B9B</color>

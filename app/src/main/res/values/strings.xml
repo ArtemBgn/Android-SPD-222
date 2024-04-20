@@ -12,7 +12,7 @@
     <string name="calc_btn_c">C</string>
     <string name="calc_btn_backspace">\u232B</string>
     <string name="calc_btn_inverse">\u00B9/\u2093</string>
-    <string name="calc_btn_square">\u00B2</string>
+    <string name="calc_btn_square">\u1D61\u00B2</string>
     <string name="calc_btn_sqrt">\u221Ax</string>
     <string name="calc_btn_divide">\u00F7</string>
     <string name="calc_btn_0">0</string>
@@ -25,13 +25,13 @@
     <string name="calc_btn_7">7</string>
     <string name="calc_btn_8">8</string>
     <string name="calc_btn_9">9</string>
-    <string name="calc_btn_multiply">*</string>
-
-
+    <string name="calc_btn_multiply">\u00D7</string>
+    <string name="calc_btn_minus">\u2212</string>
+    <string name="calc_btn_plus">\u002B</string>
+    <string name="calc_btn_positive_negative">\u207A/\u208B</string>
+    <string name="calc_btn_comma">\u002C</string>
+    <string name="calc_btn_equals">\u003D</string>
 </resources>
 <!--
-calc_btn_7
-calc_btn_8
-calc_btn_9
-calc_btn_multiply
+
 -->

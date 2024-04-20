@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="@color/calc_fg"
+        android:textColor="@color/calc_fg"
         android:text="@string/calc_tv_title"
         android:textSize="22sp" />
 
@@ -22,16 +22,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginEnd="15dp"
-        android:background="@color/calc_history_fg"
+        android:textColor="@color/calc_history_fg"
         android:textSize="20sp"
         tools:text="25 x 3 =" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="end"
         android:textColor="@color/calc_fg"
         android:textStyle="bold"
-        android:layout_gravity="end"
         android:layout_margin="10dp"
         android:textSize="48sp"
         tools:text="75" />
@@ -137,8 +137,8 @@
                 style="@style/calc_digit_btn" />
 
             <Button
-                android:id="@+id/calc_btn_multiply2"
-                android:text="@string/calc_btn_multiply"
+                android:id="@+id/calc_btn_minus"
+                android:text="@string/calc_btn_minus"
                 style="@style/calc_func_btn" />
         </TableRow>
         <TableRow
@@ -162,12 +162,37 @@
                 style="@style/calc_digit_btn" />
 
             <Button
-                android:id="@+id/calc_btn_multiply2"
-                android:text="@string/calc_btn_multiply"
+                android:id="@+id/calc_btn_plus"
+                android:text="@string/calc_btn_plus"
                 style="@style/calc_func_btn" />
         </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp" >
 
+            <Button
+                android:id="@+id/calc_btn_positive_negative"
+                android:text="@string/calc_btn_positive_negative"
+                style="@style/calc_func_btn" />
+
+            <Button
+                android:id="@+id/calc_btn_0"
+                android:text="@string/calc_btn_0"
+                style="@style/calc_digit_btn" />
+
+            <Button
+                android:id="@+id/calc_btn_comma"
+                android:text="@string/calc_btn_comma"
+                style="@style/calc_func_btn" />
+
+            <Button
+                android:id="@+id/calc_btn_equals"
+                android:text="@string/calc_btn_equals"
+                style="@style/calc_equals_btn" />
+        </TableRow>
     </TableLayout>
-
-
 </LinearLayout>
+<!--
+android:background="@color/calc_equal_bg"
+-->
