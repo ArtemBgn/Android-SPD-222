@@ -18,6 +18,7 @@
         android:textSize="22sp" />
 
     <TextView
+        android:id="@+id/calc_tv_history"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
@@ -27,6 +28,7 @@
         tools:text="25 x 3 =" />
 
     <TextView
+        android:id="@+id/calc_tv_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
