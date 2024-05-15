@@ -40,7 +40,8 @@
     <!-- endregion -->
 
     <!-- region GAME ACTIVITY -->
-
+    <string name="game_tv_title">Snake-Step | </string>
+    <string name="game_tv_title_foods"> Foods: </string>
     <!-- endregion -->
 
 </resources><!--

@@ -30,13 +30,11 @@ public class CalcActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState); // потрібно
         outState.putCharSequence( "tvResult", tvResult.getText() );
     }
-
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         tvResult.setText(savedInstanceState.getCharSequence("tvResult"));
     }
-
     @SuppressLint("DiscouragedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,14 +61,14 @@ public class CalcActivity extends AppCompatActivity {
         tvHistory = findViewById( R.id.calc_tv_history );
         tvResult = findViewById( R.id.calc_tv_result );
         if(savedInstanceState == null) {
-            tvResult.setText("0");      // немає збереженого стану -> перший запуск -> протставляємо ноль
+            tvResult.setText("0");      // немає збереженого стану -> перший запуск -> проставляємо ноль
             tvHistory.setText("");
         }
         for (int i = 0; i < 10; i++ ) {
-            findViewById(                                   // на заміну R.id.calc_btn_0 приходить наступний вираз
-                    getResources().getIdentifier(                 // R
-                                    "calc_btn_" + i,  // .calc_btn_0
-                                    "id",                   //.id
+            findViewById(                               // на заміну R.id.calc_btn_0 приходить наступний вираз
+                    getResources().getIdentifier(       // R
+                                    "calc_btn_" + i,    // .calc_btn_0
+                                    "id",               //.id
                                     getPackageName()
                             )
             ).setOnClickListener( this::onDigitButtonClick );
