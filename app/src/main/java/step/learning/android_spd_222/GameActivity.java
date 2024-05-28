@@ -4,6 +4,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,6 +49,8 @@ public class GameActivity extends AppCompatActivity {
     private long timeGame2;
     private int sizeSnake;
     private int stepBonus;
+    private Animation opacityAnimation;
+    private Animation moveSnakeAnimation;
     @Override
     protected void onPause() { // подія деактивації
         super.onPause();
@@ -89,6 +93,10 @@ public class GameActivity extends AppCompatActivity {
                 if( moveDirection != Direction.right ) { moveDirection = Direction.left; }
             }
         });
+
+        opacityAnimation = AnimationUtils.loadAnimation(this, R.anim.opacity);
+        moveSnakeAnimation = AnimationUtils.loadAnimation(this, R.anim.size2);
+
         fieldColor = getResources().getColor(R.color.game_field, getTheme());
         snakeColor = getResources().getColor(R.color.game_snake, getTheme());
         tvFoodsquantity = findViewById( R.id.textView_foods_quantity );
@@ -128,17 +136,20 @@ public class GameActivity extends AppCompatActivity {
                 foodPosition = Vector2.random();
             } while ( isCellInSnake( foodPosition ) );
             gameField[foodPosition.x][foodPosition.y].setText( food );
+            gameField[foodPosition.x][foodPosition.y].startAnimation( opacityAnimation );
             //speedGame -= 25;              // як варіант можно також зробити пришвидчення після кожного годування
             foodsquantity++;
             tvFoodsquantity.setText(String.valueOf(foodsquantity));
         }
         else {
             Vector2 tail = snake.getLast();
+            //gameField[tail.x][tail.y].clearAnimation();
             snake.remove(tail);
             gameField[tail.x][tail.y].setBackgroundColor( fieldColor );
         }
         snake.addFirst(newHead);
         gameField[newHead.x][newHead.y].setBackgroundColor( snakeColor );
+        gameField[newHead.x][newHead.y].startAnimation( moveSnakeAnimation ); // анімація руху змійки
         /*
         + реалізувати збігання бонуса декілька разів при заході голови змійки на лінію бонусу
         - реалізувати зменьшення тіла змії після поєдання бонуса
@@ -171,6 +182,7 @@ public class GameActivity extends AppCompatActivity {
                 while (snake.size()>3) {
                     Vector2 tail = snake.getLast();
                     snake.remove(snake.getLast());
+                    //gameField[tail.x][tail.y].clearAnimation();
                     gameField[tail.x][tail.y].setBackgroundColor( fieldColor );
                 }
             }

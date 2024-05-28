@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scale xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromXScale="1.0"
+    android:fromYScale="1.0"
+    android:toXScale="1.5"
+    android:toYScale="1.5"
+    android:duration="350"
+
+    android:pivotX="50%"
+    android:pivotY="50%"
+
+    android:repeatMode="reverse"
+    android:repeatCount="1"
+    />
+
+<!--
+Деякі анімації керують кількома параметрами одночасно.
+Наприклад: масштаб по Х і по Y.
+
+Поняття "нерухомої точки" (pivot) - точка віджету, яка не змінює свого положення під час анімації
+pivot(0, 0)      pivot(0.5, 0.5)
+    ++ -> ++**        ****
+++    ++**      ++ -> *++*
+      ****      ++    *++*
+      ****            ****
+
+[ repeatMode="reverse" ] - відповідає за плавне повернення,
+але для цього треба додати [ repeatCount="1" ] - кількість повторень.
+Повторення рахуються за часовими блоками: якщо анімація 100мс, то на
+кожен повтор - ще +100мс. А якщо режим реверс, то частина з них буде
+відповідати за зворотній хід
+-->

@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -63,6 +65,7 @@ public class ChatActivity extends AppCompatActivity {
     private final Handler handler = new Handler();
     private boolean wasSoundApplication = true;
     private ImageView onOffSound;
+    private Animation newMessageAnimation;
 
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
@@ -75,6 +78,8 @@ public class ChatActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        newMessageAnimation = AnimationUtils.loadAnimation(this, R.anim.arc2);
 
         updateChat();
 /*
@@ -216,6 +221,7 @@ public class ChatActivity extends AppCompatActivity {
             }
             else if( wasNewMessage && wasNewMessageSound && wasSoundApplication ) {
                 newMessageSound.start();
+                onOffSound.startAnimation( newMessageAnimation );
                 wasNewMessageSound = false;
             }
         }
@@ -350,6 +356,7 @@ public class ChatActivity extends AppCompatActivity {
             onOffSound.setImageResource(R.drawable.sosound);
             wasSoundApplication = true;
         }
+        onOffSound.startAnimation( newMessageAnimation );
     }
     private void urlToImageView(String url, ImageView imageView) {
         CompletableFuture

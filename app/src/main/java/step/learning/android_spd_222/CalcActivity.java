@@ -3,6 +3,8 @@ package step.learning.android_spd_222;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +26,7 @@ public class CalcActivity extends AppCompatActivity {
     private String operation;
     private String percent = "";
     private String signum;
+    private Animation clickAnimation;
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
@@ -46,6 +49,8 @@ public class CalcActivity extends AppCompatActivity {
         До обробників передається Bundle, що є сховищем, яке дозволяє зберігати та відновлювати дані.
         Також збережений Bundle передається до onCreate, що дозволяє визначити чи це перший запуск чи перезапуск через зміну конфігурації.
         */
+
+        clickAnimation = AnimationUtils.loadAnimation(this, R.anim.calc);
 
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -103,8 +108,10 @@ public class CalcActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
     private void onInverseClick(View view) {
+        view.startAnimation( clickAnimation );
         String result = tvResult.getText().toString();
         String strHistory = "";//tvHistory.getText().toString();
         double x = Double.parseDouble(result);
@@ -122,6 +129,7 @@ public class CalcActivity extends AppCompatActivity {
         tvResult.setText( str );
     }    // Нужно поработать с историей
     private void onSquareClick(View view) {
+        view.startAnimation( clickAnimation );
         String result = tvResult.getText().toString();
         String strHistory = tvHistory.getText().toString();
         double x = Double.parseDouble(result);
@@ -135,14 +143,17 @@ public class CalcActivity extends AppCompatActivity {
         tvResult.setText( str );
     }
     private void onCClick(View view) {
+        view.startAnimation( clickAnimation );
         tvHistory.setText( "" );
         tvResult.setText( "0" );
     }
     private void onCeClick(View view) {
+        view.startAnimation( clickAnimation );
         tvHistory.setText( "" );
         tvResult.setText( "0" );
     }     // пока то же самое что и onCClick, нужно подредактировать
     private void onBackspaceClick(View view) {
+        view.startAnimation( clickAnimation );
         String result = tvResult.getText().toString();
         if (( result.length() >= 1 ) && ( !result.equals("0") ) ) {
             result = result.substring(0, result.length()-1);
@@ -151,6 +162,7 @@ public class CalcActivity extends AppCompatActivity {
         }
     }
     private void onSqrtClick(View view) {
+        view.startAnimation( clickAnimation );
         String result = tvResult.getText().toString();
         String strHistory = tvHistory.getText().toString();
         double x = Double.parseDouble(result);
@@ -164,10 +176,12 @@ public class CalcActivity extends AppCompatActivity {
         tvResult.setText( str );
     }
     private void onPercentClick(View view) {
+        view.startAnimation( clickAnimation );
         percent = "%";
         this.onEqualsClick(view);
     }
     private void onDivideClick(View view) {
+        view.startAnimation( clickAnimation );
         String result = tvResult.getText().toString();
         variable_1 = Double.parseDouble(result);
         operation = "\u00F7";
@@ -176,6 +190,7 @@ public class CalcActivity extends AppCompatActivity {
         tvResult.setText( "0" );
     }
     private void onMultiplyClick(View view) {
+        view.startAnimation( clickAnimation );
         String result = tvResult.getText().toString();
         variable_1 = Double.parseDouble(result);
         operation = "\u00D7";
@@ -184,6 +199,7 @@ public class CalcActivity extends AppCompatActivity {
         tvResult.setText( "0" );
     }
     private void onMinusClick(View view) {
+        view.startAnimation( clickAnimation );
         String result = tvResult.getText().toString();
         variable_1 = Double.parseDouble(result);
         operation = "\u2212";
@@ -192,6 +208,7 @@ public class CalcActivity extends AppCompatActivity {
         tvResult.setText( "0" );
     }
     private void onPlusClick(View view) {
+        view.startAnimation( clickAnimation );
         String result = tvResult.getText().toString();
         variable_1 = Double.parseDouble(result);
         operation = "\u002B";
@@ -200,6 +217,7 @@ public class CalcActivity extends AppCompatActivity {
         tvResult.setText( "0" );
     }
     private void onPosNegClick(View view) {
+        view.startAnimation( clickAnimation );
         String result = tvResult.getText().toString();
 
         if (result.length() > 9) {
@@ -218,6 +236,7 @@ public class CalcActivity extends AppCompatActivity {
         tvResult.setText( result );
     }
     private void onCommaClick(View view) {
+        view.startAnimation( clickAnimation );
         String result = tvResult.getText().toString();
         if (result.length() > 8) {
             Toast.makeText(this, R.string.calc_limit_exceeded_comma, Toast.LENGTH_SHORT).show();
@@ -231,6 +250,7 @@ public class CalcActivity extends AppCompatActivity {
         tvResult.setText( result );
     }
     private void onEqualsClick(View view) {
+        view.startAnimation( clickAnimation );
         String result = tvResult.getText().toString();
         variable_2 = Double.parseDouble(result);
         String strHistory = tvHistory.getText().toString();
@@ -267,6 +287,7 @@ public class CalcActivity extends AppCompatActivity {
         percent = "";
     }
     private void onDigitButtonClick(View view) {
+        view.startAnimation( clickAnimation );
         String result = tvResult.getText().toString();
         if (result.length() >= 10) {
             Toast.makeText(this, R.string.calc_limit_exceeded, Toast.LENGTH_SHORT).show();

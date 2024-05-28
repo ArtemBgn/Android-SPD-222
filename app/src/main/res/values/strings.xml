@@ -6,6 +6,7 @@
     <string name="main_btn_calc">Калькулятор</string>
     <string name="main_btn_game">Свайпи. Гра</string>
     <string name="main_btn_chat">Мережа. Чат</string>
+    <string name="main_btn_anim">Анімації</string>
     <!-- endregion -->
 
     <!-- region CALC ACTIVITY -->
@@ -49,6 +50,15 @@
     <string name="chat_scroller_description">Chat messages</string>
     <string name="chat_et_nik_line">Nik</string>
     <string name="chat_et_nik">ArtBag</string>
+    <!-- endregion -->
+
+    <!-- region ANIM ACTIVITY -->
+    <string name="anim_title">Анімація</string>
+    <string name="anim_opacity_title">Прозорість</string>
+    <string name="anim_size_title">Масштаб</string>
+    <string name="anim_arc_title">Обертання</string>
+    <string name="anim_move_title">Переміщення</string>
+    <string name="anim_combo_title">Комбинація</string>
     <!-- endregion -->
 
 </resources><!--
