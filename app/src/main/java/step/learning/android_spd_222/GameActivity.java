@@ -35,7 +35,7 @@ public class GameActivity extends AppCompatActivity {
     private Direction moveDirection;
     private boolean isPlaying;
     private static final String food = new String( Character.toChars(0x1F34E) );
-    private static final String foodBonus = new String( Character.toChars(0x1F34C) );
+    private static final String foodBonus = new String( Character.toChars(0x1F381) );
     private Vector2 foodPosition;
     private Vector2 bonusPosition;
     private static final Random _random = new Random();

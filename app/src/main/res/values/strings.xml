@@ -5,6 +5,7 @@
     <string name="main_tv_title">Основи Андроїд</string>
     <string name="main_btn_calc">Калькулятор</string>
     <string name="main_btn_game">Свайпи. Гра</string>
+    <string name="main_btn_chat">Мережа. Чат</string>
     <!-- endregion -->
 
     <!-- region CALC ACTIVITY -->
@@ -42,6 +43,12 @@
     <!-- region GAME ACTIVITY -->
     <string name="game_tv_title">Snake-Step | </string>
     <string name="game_tv_title_foods"> Foods: </string>
+    <!-- endregion -->
+
+    <!-- region CHAT ACTIVITY -->
+    <string name="chat_scroller_description">Chat messages</string>
+    <string name="chat_et_nik_line">Nik</string>
+    <string name="chat_et_nik">ArtBag</string>
     <!-- endregion -->
 
 </resources><!--
