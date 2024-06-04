@@ -50,7 +50,7 @@ public class GameActivity extends AppCompatActivity {
     private int sizeSnake;
     private int stepBonus;
     private Animation opacityAnimation;
-    private Animation moveSnakeAnimation;
+    //private Animation moveSnakeAnimation;
     @Override
     protected void onPause() { // подія деактивації
         super.onPause();
@@ -95,7 +95,7 @@ public class GameActivity extends AppCompatActivity {
         });
 
         opacityAnimation = AnimationUtils.loadAnimation(this, R.anim.opacity);
-        moveSnakeAnimation = AnimationUtils.loadAnimation(this, R.anim.size2);
+        //moveSnakeAnimation = AnimationUtils.loadAnimation(this, R.anim.size2);
 
         fieldColor = getResources().getColor(R.color.game_field, getTheme());
         snakeColor = getResources().getColor(R.color.game_snake, getTheme());
@@ -149,7 +149,7 @@ public class GameActivity extends AppCompatActivity {
         }
         snake.addFirst(newHead);
         gameField[newHead.x][newHead.y].setBackgroundColor( snakeColor );
-        gameField[newHead.x][newHead.y].startAnimation( moveSnakeAnimation ); // анімація руху змійки
+        //gameField[newHead.x][newHead.y].startAnimation( moveSnakeAnimation ); // анімація руху змійки
         /*
         + реалізувати збігання бонуса декілька разів при заході голови змійки на лінію бонусу
         - реалізувати зменьшення тіла змії після поєдання бонуса
